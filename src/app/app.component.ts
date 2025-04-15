@@ -52,12 +52,8 @@ export class AppComponent {
         const isBackToStart = prevTrip.endPoint != trip.startPoint;
         if (isSameRoute) {
           level = 'level-2';
-          const prevMatchIndex = this.finalResponse.findIndex(
-            item => item.startPoint === trip.startPoint && item.endPoint === trip.endPoint
-          );
-          if (prevMatchIndex !== -1) {
-            this.finalResponse[prevMatchIndex].level = 'level-2';
-          }
+            this.finalResponse[this.trips?.length - 2].level = 'level-2';
+          // }
         } else if (isContinued) {
           level = 'level-1';
         } else if (isBackToStart) {
